@@ -1,13 +1,13 @@
 import axios, { type AxiosRequestConfig, type AxiosResponse } from 'axios'
 import { toast } from 'react-toastify'
 
-import { apiClient } from './apiClient.service.ts'
+import { httpClient } from '@/shared/clients'
 
 class HttpService {
 	private client: ReturnType<typeof axios.create>
 
 	constructor() {
-		this.client = apiClient
+		this.client = httpClient
 	}
 
 	public isApiError(error: any): error is ApiError {
