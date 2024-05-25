@@ -1,0 +1,20 @@
+.spinner {
+	border-radius: 50%;
+	width: 2.4rem;
+	height: 2.4rem;
+	animation: loader 0.7s infinite linear;
+	margin: auto;
+	border-width: 0.2rem;
+	border-style: solid;
+	border-color: var(--color-black);
+	border-left-color: var(--color-white);
+}
+
+@keyframes loader {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
