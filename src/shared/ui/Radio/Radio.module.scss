@@ -1,0 +1,52 @@
+@import '@/app/styles/mixins';
+
+.radio {
+	position: relative;
+	display: inline-grid;
+	overflow: hidden;
+	grid-template-columns: 2rem 1fr;
+	align-items: center;
+	gap: var(--spacing-8);
+
+	input {
+		@include hidden;
+
+		&:checked + .radio__status::after {
+			opacity: 1;
+		}
+	}
+
+	&__status {
+		border-radius: 50%;
+		position: relative;
+		width: 2rem;
+		height: 2rem;
+		background: var(--color-black);
+		transition-duration: var(--transition-duration);
+		transition-property: color, background-color, opacity, border-color;
+		transition-timing-function: var(--transition-timing-function);
+
+		&::after {
+			@include content;
+
+			top: 0.5rem;
+			left: 0.5rem;
+			width: 1rem;
+			height: 1rem;
+			background: var(--color-white);
+			opacity: 0;
+			transition-duration: var(--transition-duration);
+			transition-property: color, background-color, opacity, border-color;
+			transition-timing-function: var(--transition-timing-function);
+		}
+	}
+
+	&__label {
+	}
+
+	&_state {
+		&_disabled {}
+
+		&_error {}
+	}
+}

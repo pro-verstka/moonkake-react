@@ -13,6 +13,7 @@ export const Root = ({ children, ...props }: PropsWithChildren<RootProps>) => {
 }
 
 export type FieldSetProps = ComponentProps<'fieldset'>
+
 export const FieldSet = ({ children, ...props }: FieldSetProps) => {
 	return (
 		<fieldset {...props} className={cn(styles.form__fieldset, props.className)}>
@@ -22,6 +23,7 @@ export const FieldSet = ({ children, ...props }: FieldSetProps) => {
 }
 
 export type RowProps = ComponentProps<'div'>
+
 export const Row = ({ children, ...props }: PropsWithChildren<RowProps>) => {
 	return (
 		<div {...props} className={cn(styles.form__row, props.className)}>
@@ -31,6 +33,7 @@ export const Row = ({ children, ...props }: PropsWithChildren<RowProps>) => {
 }
 
 export type ColProps = ComponentProps<'div'>
+
 export const Col = ({ children, ...props }: PropsWithChildren<ColProps>) => {
 	return (
 		<div {...props} className={cn(styles.form__col, props.className)}>
@@ -40,6 +43,7 @@ export const Col = ({ children, ...props }: PropsWithChildren<ColProps>) => {
 }
 
 export type LabelProps = ComponentProps<'label'>
+
 export const Label = ({ children, ...props }: PropsWithChildren<LabelProps>) => {
 	return (
 		<label {...props} className={cn(styles.form__label, props.className)}>
@@ -49,6 +53,7 @@ export const Label = ({ children, ...props }: PropsWithChildren<LabelProps>) => 
 }
 
 export type DescriptionProps = ComponentProps<'div'>
+
 export const Description = ({ children, ...props }: PropsWithChildren<DescriptionProps>) => {
 	return (
 		<div {...props} className={cn(styles.form__description, props.className)}>
