@@ -1,5 +1,6 @@
-import { type ComponentProps, forwardRef, type PropsWithChildren } from 'react'
 import cn from 'classnames'
+import { type ComponentProps, forwardRef, type PropsWithChildren } from 'react'
+
 import styles from './Radio.module.scss'
 
 export type RadioProps = Omit<ComponentProps<'input'>, 'type'> & {

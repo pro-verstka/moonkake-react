@@ -1,5 +1,6 @@
-import { type ComponentProps, forwardRef, type PropsWithChildren } from 'react'
 import cn from 'classnames'
+import { type ComponentProps, forwardRef, type PropsWithChildren } from 'react'
+
 import styles from './Checkbox.module.scss'
 
 export type CheckboxProps = Omit<ComponentProps<'input'>, 'type'> & {

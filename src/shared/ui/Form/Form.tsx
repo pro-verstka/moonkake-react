@@ -1,5 +1,6 @@
-import type { ComponentProps, PropsWithChildren } from 'react'
 import cn from 'classnames'
+import type { ComponentProps, PropsWithChildren } from 'react'
+
 import styles from './Form.module.scss'
 
 export type RootProps = ComponentProps<'form'>

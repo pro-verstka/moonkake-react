@@ -1,17 +1,19 @@
-import axios, { type AxiosRequestConfig, type AxiosResponse } from 'axios'
+import { type AxiosInstance, type AxiosRequestConfig, type AxiosResponse } from 'axios'
 import { toast } from 'react-toastify'
 
 import { httpClient } from '@/shared/clients'
 
 class HttpService {
-	private client: ReturnType<typeof axios.create>
+	private client: AxiosInstance
 
 	constructor() {
 		this.client = httpClient
 	}
 
-	public isApiError(error: any): error is ApiError {
-		return error?.title && error?.detail && error?.type
+	public isApiError(error: unknown): error is ApiError {
+		const err = error as UnknownError
+
+		return !!err?.title && !!err?.detail && !!err?.type
 	}
 
 	async get<Response, Error = ApiError>(url: string, params?: unknown, config?: AxiosRequestConfig) {
@@ -96,20 +98,23 @@ class HttpService {
 		}
 	}
 
-	private errorHandler<Error>(error: any) {
+	private errorHandler<Error>(error: unknown) {
+		const err = error as UnknownError
+
 		return {
 			success: false as const,
 			data: null,
 			error: {
-				title: error.name,
-				description: error.message,
+				title: err.name,
+				description: err.message,
 				type: 'error'
 			} as Error
 		}
 	}
 
-	private errorMessageHandler(error: any) {
-		const message = error.message
+	private errorMessageHandler(error: unknown) {
+		const err = error as UnknownError
+		const message = `${err?.message}` || 'Unknown error'
 
 		// if (this.isApiError(error?.response?.data)) {
 		// 	message = error?.response.data.detail

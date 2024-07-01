@@ -13,7 +13,7 @@ module.exports = {
 	],
 	ignorePatterns: ['dist', '.eslintrc.cjs'],
 	parser: '@typescript-eslint/parser',
-	plugins: ['react-refresh'],
+	plugins: ['react-refresh', 'simple-import-sort'],
 	rules: {
 		'react-refresh/only-export-components': [
 			'warn',
@@ -40,6 +40,34 @@ module.exports = {
 				children: 'never',
 				propElementValues: 'always'
 			}
-		]
-	}
+		],
+		'simple-import-sort/imports': 'error',
+		'simple-import-sort/exports': 'error'
+	},
+	"overrides": [
+		{
+			"files": ["*.ts", "*.tsx"],
+			"rules": {
+				"simple-import-sort/imports": [
+					"error",
+					{
+						"groups": [
+							// External packages.
+							["^"],
+							// Internal packages.
+							["^@/"],
+							// Side effect imports.
+							["^\\u0000"],
+							// Parent imports.
+							["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+							// Other relative imports.
+							["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+							// Style imports.
+							["^.+\\.(scss|sass|css)$"]
+						]
+					}
+				]
+			}
+		}
+	]
 }

@@ -1,5 +1,6 @@
-import { type ComponentProps, forwardRef } from 'react'
 import cn from 'classnames'
+import { type ComponentProps, forwardRef } from 'react'
+
 import styles from './Field.module.scss'
 
 export type InputBaseProps = ComponentProps<'input'> & {
