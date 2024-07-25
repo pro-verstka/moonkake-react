@@ -1,1 +1,1 @@
-export { Radio, type RadioProps } from './Radio.tsx'
+export { type RadioProps, Radio } from './Radio.tsx'

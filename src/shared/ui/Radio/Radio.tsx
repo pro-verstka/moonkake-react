@@ -1,7 +1,7 @@
+import { type PropsWithChildren, type ComponentProps, forwardRef } from 'react'
 import cn from 'classnames'
-import { type ComponentProps, forwardRef, type PropsWithChildren } from 'react'
 
-import styles from './Radio.module.scss'
+import styles from './styles.module.scss'
 
 export type RadioProps = Omit<ComponentProps<'input'>, 'type'> & {
 	isError?: boolean
@@ -9,9 +9,9 @@ export type RadioProps = Omit<ComponentProps<'input'>, 'type'> & {
 
 export const Radio = forwardRef<HTMLInputElement, PropsWithChildren<RadioProps>>(({ children, isError, ...props }) => {
 	const classNames = {
-		[styles.radio]: true,
 		[styles.radio_state_disabled]: props.disabled,
-		[styles.radio_state_error]: isError
+		[styles.radio_state_error]: isError,
+		[styles.radio]: true
 	}
 
 	return (

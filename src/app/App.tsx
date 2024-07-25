@@ -1,8 +1,7 @@
 import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import { Router } from './router'
-
-import 'react-toastify/dist/ReactToastify.css'
 import './styles/index.scss'
 
 export const App = () => {
@@ -10,7 +9,7 @@ export const App = () => {
 		<>
 			<Router />
 
-			<ToastContainer theme="colored" position="bottom-right" stacked />
+			<ToastContainer position="bottom-right" theme="colored" stacked />
 		</>
 	)
 }

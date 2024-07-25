@@ -13,7 +13,9 @@
 	transition-property: color, background-color, opacity, border-color;
 	transition-timing-function: var(--transition-timing-function);
 
-	&_variant {}
+	&_variant {
+	}
 
-	&_appearance {}
+	&_appearance {
+	}
 }

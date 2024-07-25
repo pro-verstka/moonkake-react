@@ -1,6 +1,6 @@
-import { httpService } from '../../utils'
-
 import type { GetUserResponse } from './user.model.ts'
+
+import { httpService } from '../../utils'
 
 /**
  * Service class for handling user-related operations.

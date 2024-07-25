@@ -1,7 +1,7 @@
+import { type PropsWithChildren, type ComponentProps, forwardRef } from 'react'
 import cn from 'classnames'
-import { type ComponentProps, forwardRef, type PropsWithChildren } from 'react'
 
-import styles from './Checkbox.module.scss'
+import styles from './styles.module.scss'
 
 export type CheckboxProps = Omit<ComponentProps<'input'>, 'type'> & {
 	isError?: boolean
@@ -10,9 +10,9 @@ export type CheckboxProps = Omit<ComponentProps<'input'>, 'type'> & {
 export const Checkbox = forwardRef<HTMLInputElement, PropsWithChildren<CheckboxProps>>(
 	({ children, isError, ...props }) => {
 		const classNames = {
-			[styles.checkbox]: true,
 			[styles.checkbox_state_disabled]: props.disabled,
-			[styles.checkbox_state_error]: isError
+			[styles.checkbox_state_error]: isError,
+			[styles.checkbox]: true
 		}
 
 		return (

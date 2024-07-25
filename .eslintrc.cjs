@@ -4,16 +4,22 @@ module.exports = {
 		browser: true,
 		es2020: true
 	},
+	settings: {
+		react: {
+			version: 'detect'
+		}
+	},
 	extends: [
 		'eslint:recommended',
 		'plugin:@typescript-eslint/recommended',
 		'plugin:react-hooks/recommended',
 		'plugin:react/recommended',
-		'plugin:prettier/recommended'
+		'plugin:prettier/recommended',
+		'plugin:perfectionist/recommended-line-length-legacy'
 	],
 	ignorePatterns: ['dist', '.eslintrc.cjs'],
 	parser: '@typescript-eslint/parser',
-	plugins: ['react-refresh', 'simple-import-sort'],
+	plugins: ['react-refresh', 'perfectionist'],
 	rules: {
 		'react-refresh/only-export-components': [
 			'warn',
@@ -41,33 +47,6 @@ module.exports = {
 				propElementValues: 'always'
 			}
 		],
-		'simple-import-sort/imports': 'error',
-		'simple-import-sort/exports': 'error'
-	},
-	"overrides": [
-		{
-			"files": ["*.ts", "*.tsx"],
-			"rules": {
-				"simple-import-sort/imports": [
-					"error",
-					{
-						"groups": [
-							// External packages.
-							["^"],
-							// Internal packages.
-							["^@/"],
-							// Side effect imports.
-							["^\\u0000"],
-							// Parent imports.
-							["^\\.\\.(?!/?$)", "^\\.\\./?$"],
-							// Other relative imports.
-							["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
-							// Style imports.
-							["^.+\\.(scss|sass|css)$"]
-						]
-					}
-				]
-			}
-		}
-	]
+		'perfectionist/sort-imports': 'error'
+	}
 }

@@ -1,7 +1,7 @@
-import cn from 'classnames'
 import { type ComponentProps, forwardRef } from 'react'
+import cn from 'classnames'
 
-import styles from './Field.module.scss'
+import styles from './styles.module.scss'
 
 export type TextAreaBaseProps = ComponentProps<'textarea'> & {
 	isError?: boolean
@@ -9,9 +9,9 @@ export type TextAreaBaseProps = ComponentProps<'textarea'> & {
 
 export const TextAreaBase = forwardRef<HTMLTextAreaElement, TextAreaBaseProps>(({ isError, ...props }, ref) => {
 	const classNames = {
-		[styles.field]: true,
-		[styles.field_state_error]: isError
+		[styles.field_state_error]: isError,
+		[styles.field]: true
 	}
 
-	return <textarea rows={3} {...props} ref={ref} className={cn(classNames, props.className)} />
+	return <textarea rows={3} {...props} className={cn(classNames, props.className)} ref={ref} />
 })
