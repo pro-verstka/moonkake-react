@@ -1,26 +1,34 @@
 import react from '@vitejs/plugin-react-swc'
+import checker from 'vite-plugin-checker'
 import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
-import checker from 'vite-plugin-checker'
 
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [
 		react(),
 		checker({
-			typescript: true,
 			eslint: {
 				lintCommand: 'eslint "./src/**/*.{ts,tsx}"'
-			}
+			},
+			typescript: true
 		})
 	],
+	build: {
+		cssMinify: 'lightningcss',
+		assetsInlineLimit: 0,
+		sourcemap: false
+	},
 	resolve: {
 		alias: {
 			'@': resolve(import.meta.dirname, './src')
 		}
 	},
-	build: {
-		sourcemap: false,
-		assetsInlineLimit: 0
+	css: {
+		preprocessorOptions: {
+			scss: {
+				api: 'modern'
+			}
+		}
 	}
 })
