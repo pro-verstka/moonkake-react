@@ -1,6 +1,6 @@
 import type { PropsWithChildren, ComponentProps } from 'react'
 
-import cn from 'classnames'
+import cn from 'clsx'
 
 import styles from './styles.module.scss'
 

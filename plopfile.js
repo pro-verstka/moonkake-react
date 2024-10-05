@@ -93,7 +93,7 @@ export const {{pascalCase name}} = () => {
 			},
 			{
 				template: `import type { ComponentProps } from 'react'
-import cn from 'classnames'
+import cn from 'clsx'
 import styles from './styles.module.scss'
 
 export type {{pascalCase name}}Props = ComponentProps<'div'> & {
@@ -143,7 +143,7 @@ export { use{{pascalCase name}} } from './model/use{{pascalCase name}}.ts'
 			{
 				template: `import { use{{pascalCase name}} } from '../model/use{{pascalCase name}}.ts'
 import styles from './styles.module.scss'
-import cn from 'classnames'
+import cn from 'clsx'
 
 export type {{pascalCase name}}Props = {
 

@@ -1,20 +1,12 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { BaseLayout } from '@/widgets/layouts'
-import { HomePage } from '@/pages/home'
+import { RouterProvider, createRouter } from '@tanstack/react-router'
+import { routeTree } from '@/routeTree.gen'
 
-const router = createBrowserRouter([
-	{
-		children: [
-			{
-				element: <HomePage />,
-				index: true,
-				path: '/'
-			}
-		],
-		element: <BaseLayout />
+const router = createRouter({ routeTree })
+
+declare module '@tanstack/react-router' {
+	interface Register {
+		router: typeof router
 	}
-])
-
-export const Router = () => {
-	return <RouterProvider router={router} />
 }
+
+export const Router = () => <RouterProvider router={router} />
