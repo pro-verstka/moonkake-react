@@ -2,23 +2,21 @@ import { createJSONStorage, persist } from 'zustand/middleware'
 import { create } from 'zustand'
 
 type User = {
-	email: string
-	name: string
 	id: string
 }
 
-type SessionStore = {
+type SessionState = {
 	token: string | null
 	user: User | null
 }
 
 type SessionActions = {
-	setToken: (token: SessionStore['token']) => void
-	setUser: (user: SessionStore['user']) => void
+	setToken: (token: SessionState['token']) => void
+	setUser: (user: SessionState['user']) => void
 	isAuthenticated: () => boolean
 }
 
-export const sessionStore = create<SessionActions & SessionStore>()(
+export const sessionStore = create<SessionActions & SessionState>()(
 	persist(
 		(set, get) => ({
 			isAuthenticated: () => Boolean(get().user) && Boolean(get().token),
