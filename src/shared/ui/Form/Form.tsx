@@ -63,3 +63,17 @@ export const Description = ({ children, ...props }: PropsWithChildren<Descriptio
 		</div>
 	)
 }
+
+export type ErrorProps = ComponentProps<'div'>
+
+export const Error = ({ children, ...props }: PropsWithChildren<ErrorProps>) => {
+	if (!children) {
+		return null
+	}
+
+	return (
+		<div {...props} className={cn(styles.form__error, props.className)}>
+			{children}
+		</div>
+	)
+}

@@ -1,11 +1,12 @@
 import { useSessionAuth } from '@/shared/stores/session'
+import { LoginForm } from '@/features/login-form'
 import { Outlet } from '@tanstack/react-router'
 
 export const ProtectedLayout = () => {
 	const isAuthenticated = useSessionAuth()
 
 	if (!isAuthenticated()) {
-		return <>login form</>
+		return <LoginForm />
 	}
 
 	return <Outlet />
