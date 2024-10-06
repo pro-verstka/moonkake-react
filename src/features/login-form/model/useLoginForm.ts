@@ -1,6 +1,6 @@
 import { type SubmitErrorHandler, type SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { toast } from 'react-toastify'
+import { toast } from 'sonner'
 import { z } from 'zod'
 
 const schema = z.object({
@@ -23,7 +23,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>
 
 export const useLoginForm = () => {
-  const form = useForm<FormData>({
+	const form = useForm<FormData>({
 		resolver: zodResolver(schema)
 	})
 
@@ -33,15 +33,15 @@ export const useLoginForm = () => {
 
 	const onInvalidSubmitHandler: SubmitErrorHandler<FormData> = errors => {
 		console.log('@errors', errors)
-		
+
 		toast.error('Fill in the fields correctly')
 	}
 
-  return {
-    actions: {
-      onInvalidSubmitHandler,
-      onValidSubmitHandler
-    },
-    form
-  }
+	return {
+		actions: {
+			onInvalidSubmitHandler,
+			onValidSubmitHandler
+		},
+		form
+	}
 }

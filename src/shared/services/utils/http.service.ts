@@ -1,6 +1,6 @@
 import { type AxiosRequestConfig, type AxiosInstance, type AxiosResponse } from 'axios'
 import { httpClient } from '@/shared/clients'
-import { toast } from 'react-toastify'
+import { toast } from 'sonner'
 
 /**
  * A service class for handling HTTP requests using Axios.
