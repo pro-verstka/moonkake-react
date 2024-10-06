@@ -1,42 +1,12 @@
-import { type SubmitErrorHandler, type SubmitHandler, useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Input, Form } from '@/shared/ui'
-import { z } from 'zod'
 
-const schema = z.object({
-	password: z
-		.string({
-			message: 'Password is required'
-		})
-		.min(8, {
-			message: 'Password must be at least 8 characters'
-		}),
-	email: z
-		.string({
-			message: 'Email is required'
-		})
-		.email({
-			message: 'Email is invalid'
-		})
-})
-
-type FormData = z.infer<typeof schema>
+import { useLoginForm } from '../model/useLoginForm'
 
 export const LoginForm = () => {
-	const form = useForm<FormData>({
-		resolver: zodResolver(schema)
-	})
-
-	const onValidSubmitHandler: SubmitHandler<FormData> = data => {
-		console.log(data)
-	}
-
-	const onInvalidSubmitHandler: SubmitErrorHandler<FormData> = errors => {
-		console.log(errors)
-	}
+	const { actions, form } = useLoginForm()
 
 	return (
-		<Form.Root onSubmit={form.handleSubmit(onValidSubmitHandler, onInvalidSubmitHandler)}>
+		<Form.Root onSubmit={form.handleSubmit(actions.onValidSubmitHandler, actions.onInvalidSubmitHandler)}>
 			<Form.FieldSet>
 				<Form.Row>
 					<Form.Col>
