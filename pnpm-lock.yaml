@@ -12,11 +12,11 @@ importers:
         specifier: 3.9.0
         version: 3.9.0(react-hook-form@7.53.0(react@18.3.1))
       '@tanstack/react-query':
-        specifier: 5.59.11
-        version: 5.59.11(react@18.3.1)
+        specifier: 5.59.13
+        version: 5.59.13(react@18.3.1)
       '@tanstack/react-router':
-        specifier: 1.64.0
-        version: 1.64.0(@tanstack/router-generator@1.64.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 1.65.0
+        version: 1.65.0(@tanstack/router-generator@1.65.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       axios:
         specifier: 1.7.7
         version: 1.7.7
@@ -51,18 +51,18 @@ importers:
         specifier: 3.23.8
         version: 3.23.8
       zustand:
-        specifier: 4.5.5
-        version: 4.5.5(@types/react@18.3.11)(react@18.3.1)
+        specifier: 5.0.0
+        version: 5.0.0(@types/react@18.3.11)(react@18.3.1)(use-sync-external-store@1.2.2(react@18.3.1))
     devDependencies:
       '@eslint/js':
         specifier: 9.12.0
         version: 9.12.0
       '@tanstack/router-devtools':
-        specifier: 1.64.0
-        version: 1.64.0(@tanstack/react-router@1.64.0(@tanstack/router-generator@1.64.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(csstype@3.1.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 1.65.0
+        version: 1.65.0(@tanstack/react-router@1.65.0(@tanstack/router-generator@1.65.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(csstype@3.1.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tanstack/router-plugin':
-        specifier: 1.64.0
-        version: 1.64.0(vite@5.4.8(@types/node@22.7.5)(lightningcss@1.27.0)(sass-embedded@1.79.5)(sass@1.79.1))
+        specifier: 1.65.0
+        version: 1.65.0(vite@5.4.9(@types/node@22.7.5)(lightningcss@1.27.0)(sass-embedded@1.79.5)(sass@1.79.1))
       '@types/lodash':
         specifier: 4.17.10
         version: 4.17.10
@@ -77,7 +77,7 @@ importers:
         version: 18.3.1
       '@vitejs/plugin-react-swc':
         specifier: 3.7.1
-        version: 3.7.1(vite@5.4.8(@types/node@22.7.5)(lightningcss@1.27.0)(sass-embedded@1.79.5)(sass@1.79.1))
+        version: 3.7.1(vite@5.4.9(@types/node@22.7.5)(lightningcss@1.27.0)(sass-embedded@1.79.5)(sass@1.79.1))
       eslint:
         specifier: 9.12.0
         version: 9.12.0
@@ -118,11 +118,11 @@ importers:
         specifier: 8.8.1
         version: 8.8.1(eslint@9.12.0)(typescript@5.6.3)
       vite:
-        specifier: 5.4.8
-        version: 5.4.8(@types/node@22.7.5)(lightningcss@1.27.0)(sass-embedded@1.79.5)(sass@1.79.1)
+        specifier: 5.4.9
+        version: 5.4.9(@types/node@22.7.5)(lightningcss@1.27.0)(sass-embedded@1.79.5)(sass@1.79.1)
       vite-plugin-checker:
         specifier: 0.8.0
-        version: 0.8.0(eslint@9.12.0)(optionator@0.9.4)(typescript@5.6.3)(vite@5.4.8(@types/node@22.7.5)(lightningcss@1.27.0)(sass-embedded@1.79.5)(sass@1.79.1))
+        version: 0.8.0(eslint@9.12.0)(optionator@0.9.4)(typescript@5.6.3)(vite@5.4.9(@types/node@22.7.5)(lightningcss@1.27.0)(sass-embedded@1.79.5)(sass@1.79.1))
 
 packages:
 
@@ -770,19 +770,19 @@ packages:
     resolution: {integrity: sha512-2CqERleeqO3hkhJmyJm37tiL3LYgeOpmo8szqdjgtnnG0z7ZpvzkZz6HkfOr9Ca/ha7mhAiouSvLYuLkM37AMg==}
     engines: {node: '>=12'}
 
-  '@tanstack/query-core@5.59.10':
-    resolution: {integrity: sha512-XxvnKeBWqDTHstyjA1qmSD5VS/FZ2g/qYvPMhFM7IZF0JnMqMxtzbiUkiTFaZ4YZo/Q84LS0hZi0UncKJ3vIhg==}
+  '@tanstack/query-core@5.59.13':
+    resolution: {integrity: sha512-Oou0bBu/P8+oYjXsJQ11j+gcpLAMpqW42UlokQYEz4dE7+hOtVO9rVuolJKgEccqzvyFzqX4/zZWY+R/v1wVsQ==}
 
-  '@tanstack/react-query@5.59.11':
-    resolution: {integrity: sha512-m5I4+4NHy6p0uzKLiq30EdRGk37CHHjXJsfMT0bty/Z/aO11LgXUgDBCq/xma4eO5RlV95sFVmi2QB9nVaLlxg==}
+  '@tanstack/react-query@5.59.13':
+    resolution: {integrity: sha512-GB2ELtiH8tL0rcFiM4sWvnXhazt1xRXX/LolMEV12kfEKu58aNA4lQoieslP61PO4vZO9JJMwm+6lqyS0E1HOA==}
     peerDependencies:
       react: ^18 || ^19
 
-  '@tanstack/react-router@1.64.0':
-    resolution: {integrity: sha512-eRYnKIyedfiTWkTMyvqjgOzs0b+YSu1QduwEXz5uo2M5U2tguPvJtXck7jSR/IFn63SVq5iROnAmYIisZBuomA==}
+  '@tanstack/react-router@1.65.0':
+    resolution: {integrity: sha512-J54L7c1s+8LetRd0liEHBaWqUKyM+1ExS1wGvB2U0U6Zji4krZcf3hquSPWcl14eWxiSAwIniVFs0r1Evko5Cg==}
     engines: {node: '>=12'}
     peerDependencies:
-      '@tanstack/router-generator': 1.64.0
+      '@tanstack/router-generator': 1.65.0
       react: '>=18'
       react-dom: '>=18'
     peerDependenciesMeta:
@@ -795,20 +795,20 @@ packages:
       react: ^17.0.0 || ^18.0.0
       react-dom: ^17.0.0 || ^18.0.0
 
-  '@tanstack/router-devtools@1.64.0':
-    resolution: {integrity: sha512-XFWstGgrV3owZma4eo2tuai53oK4Zzb2Ro9F4KaUaPUVe64T+p3CKvst4BakLkC2SSJpSof4qVB88qBpb7+pGA==}
+  '@tanstack/router-devtools@1.65.0':
+    resolution: {integrity: sha512-EjuyhvBwL6Yif0OWkZ7RfLKuxVIfJe3TrVrTGh1kFXyjU8ximUk1LTbdTpc7m7pahFgdUMJvNuaEu675os5Sxw==}
     engines: {node: '>=12'}
     peerDependencies:
-      '@tanstack/react-router': ^1.64.0
+      '@tanstack/react-router': ^1.65.0
       react: '>=18'
       react-dom: '>=18'
 
-  '@tanstack/router-generator@1.64.0':
-    resolution: {integrity: sha512-DTSMjOUG3ipMQjvOZKJLOMV5BqahUGZAYbgTol0ccdOSa64ApKBEr8vOsG3wLbNZ+Okw97hosGmMHsOr+wsFiQ==}
+  '@tanstack/router-generator@1.65.0':
+    resolution: {integrity: sha512-N2H2cHBbUNLqx/ySd5g0R1GR8gGc4UagoBWmQKaTD5gHjFwWojJhigllZlQN4U1nxZLb4yJ3eJYuxRQZCoqaJw==}
     engines: {node: '>=12'}
 
-  '@tanstack/router-plugin@1.64.0':
-    resolution: {integrity: sha512-BQB71kVS/g6bFcabLS7LXSXyqPd2PzZuxb5GzmArxo76AU+sxlX+3SBhqnRbPeqnXNDDyMdk8SVOCzHIGKsz2Q==}
+  '@tanstack/router-plugin@1.65.0':
+    resolution: {integrity: sha512-pXtXN01whuHB9N9tkvb6InfuvuOTr4BInGLnsIlixjp0jx+TC+0Z1jyb/NcyNmc14hf93b5ERQAhK8JkCSz3IQ==}
     engines: {node: '>=12'}
     peerDependencies:
       '@rsbuild/core': '>=1.0.2'
@@ -2788,8 +2788,8 @@ packages:
       vue-tsc:
         optional: true
 
-  vite@5.4.8:
-    resolution: {integrity: sha512-FqrItQ4DT1NC4zCUqMB4c4AZORMKIa0m8/URVCZ77OZ/QSNeJ54bU1vrFADbDsuwfIPcgknRkmqakQcgnL4GiQ==}
+  vite@5.4.9:
+    resolution: {integrity: sha512-20OVpJHh0PAM0oSOELa5GaZNWeDjcAvQjGXy2Uyr+Tp+/D2/Hdz6NLgpJLsarPTA2QJ6v8mX2P1ZfbsSKvdMkg==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -2897,19 +2897,22 @@ packages:
   zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
 
-  zustand@4.5.5:
-    resolution: {integrity: sha512-+0PALYNJNgK6hldkgDq2vLrw5f6g/jCInz52n9RTpropGgeAf/ioFUCdtsjCqu4gNhW9D01rUQBROoRjdzyn2Q==}
-    engines: {node: '>=12.7.0'}
+  zustand@5.0.0:
+    resolution: {integrity: sha512-LE+VcmbartOPM+auOjCCLQOsQ05zUTp8RkgwRzefUk+2jISdMMFnxvyTjA4YNWr5ZGXYbVsEMZosttuxUBkojQ==}
+    engines: {node: '>=12.20.0'}
     peerDependencies:
-      '@types/react': '>=16.8'
+      '@types/react': '>=18.0.0'
       immer: '>=9.0.6'
-      react: '>=16.8'
+      react: '>=18.0.0'
+      use-sync-external-store: '>=1.2.0'
     peerDependenciesMeta:
       '@types/react':
         optional: true
       immer:
         optional: true
       react:
+        optional: true
+      use-sync-external-store:
         optional: true
 
 snapshots:
@@ -3395,14 +3398,14 @@ snapshots:
 
   '@tanstack/history@1.61.1': {}
 
-  '@tanstack/query-core@5.59.10': {}
+  '@tanstack/query-core@5.59.13': {}
 
-  '@tanstack/react-query@5.59.11(react@18.3.1)':
+  '@tanstack/react-query@5.59.13(react@18.3.1)':
     dependencies:
-      '@tanstack/query-core': 5.59.10
+      '@tanstack/query-core': 5.59.13
       react: 18.3.1
 
-  '@tanstack/react-router@1.64.0(@tanstack/router-generator@1.64.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@tanstack/react-router@1.65.0(@tanstack/router-generator@1.65.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@tanstack/history': 1.61.1
       '@tanstack/react-store': 0.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -3411,7 +3414,7 @@ snapshots:
       tiny-invariant: 1.3.3
       tiny-warning: 1.0.3
     optionalDependencies:
-      '@tanstack/router-generator': 1.64.0
+      '@tanstack/router-generator': 1.65.0
 
   '@tanstack/react-store@0.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -3420,9 +3423,9 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       use-sync-external-store: 1.2.2(react@18.3.1)
 
-  '@tanstack/router-devtools@1.64.0(@tanstack/react-router@1.64.0(@tanstack/router-generator@1.64.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(csstype@3.1.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@tanstack/router-devtools@1.65.0(@tanstack/react-router@1.65.0(@tanstack/router-generator@1.65.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(csstype@3.1.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@tanstack/react-router': 1.64.0(@tanstack/router-generator@1.64.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tanstack/react-router': 1.65.0(@tanstack/router-generator@1.65.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       clsx: 2.1.1
       goober: 2.1.14(csstype@3.1.3)
       react: 18.3.1
@@ -3430,14 +3433,14 @@ snapshots:
     transitivePeerDependencies:
       - csstype
 
-  '@tanstack/router-generator@1.64.0':
+  '@tanstack/router-generator@1.65.0':
     dependencies:
       '@tanstack/virtual-file-routes': 1.64.0
       prettier: 3.3.3
       tsx: 4.19.1
       zod: 3.23.8
 
-  '@tanstack/router-plugin@1.64.0(vite@5.4.8(@types/node@22.7.5)(lightningcss@1.27.0)(sass-embedded@1.79.5)(sass@1.79.1))':
+  '@tanstack/router-plugin@1.65.0(vite@5.4.9(@types/node@22.7.5)(lightningcss@1.27.0)(sass-embedded@1.79.5)(sass@1.79.1))':
     dependencies:
       '@babel/core': 7.25.7
       '@babel/generator': 7.25.7
@@ -3447,7 +3450,7 @@ snapshots:
       '@babel/template': 7.25.7
       '@babel/traverse': 7.25.7
       '@babel/types': 7.25.7
-      '@tanstack/router-generator': 1.64.0
+      '@tanstack/router-generator': 1.65.0
       '@tanstack/virtual-file-routes': 1.64.0
       '@types/babel__core': 7.20.5
       '@types/babel__generator': 7.6.8
@@ -3458,7 +3461,7 @@ snapshots:
       unplugin: 1.14.1
       zod: 3.23.8
     optionalDependencies:
-      vite: 5.4.8(@types/node@22.7.5)(lightningcss@1.27.0)(sass-embedded@1.79.5)(sass@1.79.1)
+      vite: 5.4.9(@types/node@22.7.5)(lightningcss@1.27.0)(sass-embedded@1.79.5)(sass@1.79.1)
     transitivePeerDependencies:
       - supports-color
       - webpack-sources
@@ -3646,10 +3649,10 @@ snapshots:
       '@typescript-eslint/types': 8.8.1
       eslint-visitor-keys: 3.4.3
 
-  '@vitejs/plugin-react-swc@3.7.1(vite@5.4.8(@types/node@22.7.5)(lightningcss@1.27.0)(sass-embedded@1.79.5)(sass@1.79.1))':
+  '@vitejs/plugin-react-swc@3.7.1(vite@5.4.9(@types/node@22.7.5)(lightningcss@1.27.0)(sass-embedded@1.79.5)(sass@1.79.1))':
     dependencies:
       '@swc/core': 1.7.26
-      vite: 5.4.8(@types/node@22.7.5)(lightningcss@1.27.0)(sass-embedded@1.79.5)(sass@1.79.1)
+      vite: 5.4.9(@types/node@22.7.5)(lightningcss@1.27.0)(sass-embedded@1.79.5)(sass@1.79.1)
     transitivePeerDependencies:
       - '@swc/helpers'
 
@@ -5627,7 +5630,7 @@ snapshots:
 
   varint@6.0.0: {}
 
-  vite-plugin-checker@0.8.0(eslint@9.12.0)(optionator@0.9.4)(typescript@5.6.3)(vite@5.4.8(@types/node@22.7.5)(lightningcss@1.27.0)(sass-embedded@1.79.5)(sass@1.79.1)):
+  vite-plugin-checker@0.8.0(eslint@9.12.0)(optionator@0.9.4)(typescript@5.6.3)(vite@5.4.9(@types/node@22.7.5)(lightningcss@1.27.0)(sass-embedded@1.79.5)(sass@1.79.1)):
     dependencies:
       '@babel/code-frame': 7.24.2
       ansi-escapes: 4.3.2
@@ -5639,7 +5642,7 @@ snapshots:
       npm-run-path: 4.0.1
       strip-ansi: 6.0.1
       tiny-invariant: 1.3.3
-      vite: 5.4.8(@types/node@22.7.5)(lightningcss@1.27.0)(sass-embedded@1.79.5)(sass@1.79.1)
+      vite: 5.4.9(@types/node@22.7.5)(lightningcss@1.27.0)(sass-embedded@1.79.5)(sass@1.79.1)
       vscode-languageclient: 7.0.0
       vscode-languageserver: 7.0.0
       vscode-languageserver-textdocument: 1.0.11
@@ -5649,7 +5652,7 @@ snapshots:
       optionator: 0.9.4
       typescript: 5.6.3
 
-  vite@5.4.8(@types/node@22.7.5)(lightningcss@1.27.0)(sass-embedded@1.79.5)(sass@1.79.1):
+  vite@5.4.9(@types/node@22.7.5)(lightningcss@1.27.0)(sass-embedded@1.79.5)(sass@1.79.1):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.47
@@ -5754,9 +5757,8 @@ snapshots:
 
   zod@3.23.8: {}
 
-  zustand@4.5.5(@types/react@18.3.11)(react@18.3.1):
-    dependencies:
-      use-sync-external-store: 1.2.2(react@18.3.1)
+  zustand@5.0.0(@types/react@18.3.11)(react@18.3.1)(use-sync-external-store@1.2.2(react@18.3.1)):
     optionalDependencies:
       '@types/react': 18.3.11
       react: 18.3.1
+      use-sync-external-store: 1.2.2(react@18.3.1)
