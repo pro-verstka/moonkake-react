@@ -41,9 +41,6 @@ importers:
       react-hook-form:
         specifier: 7.53.0
         version: 7.53.0(react@18.3.1)
-      sass-migrator:
-        specifier: 2.2.0
-        version: 2.2.0
       sonner:
         specifier: 1.5.0
         version: 1.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2464,11 +2461,6 @@ packages:
   sass-embedded@1.80.2:
     resolution: {integrity: sha512-L0Ny0m0C4B3Lz+h/2I4w9jJVkvSqgU4EAsqUhBlaf8iWaR67f1k/jI1CmtXfW39eiYb7TV/JWaDEWGQxlwremQ==}
     engines: {node: '>=16.0.0'}
-    hasBin: true
-
-  sass-migrator@2.2.0:
-    resolution: {integrity: sha512-jIBzBoGy95nN2ADjzuPmbfd9cBOQsfHCfOhmH5sD9KqfMZFgpoLK2pAis2B8Prw6pl5OnQOb0UUF7+c3GIKwaA==}
-    engines: {node: '>=10.12.0'}
     hasBin: true
 
   sass@1.79.1:
@@ -5286,8 +5278,6 @@ snapshots:
       sass-embedded-win32-arm64: 1.80.2
       sass-embedded-win32-ia32: 1.80.2
       sass-embedded-win32-x64: 1.80.2
-
-  sass-migrator@2.2.0: {}
 
   sass@1.79.1:
     dependencies:
