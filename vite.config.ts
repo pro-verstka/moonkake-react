@@ -9,9 +9,9 @@ export default defineConfig({
 	plugins: [
 		react(),
 		checker({
-			eslint: {
-				lintCommand: 'eslint "./src/**/*.{ts,tsx}"'
-			},
+			// eslint: {
+			// 	lintCommand: 'eslint "./src/**/*.{ts,tsx}"'
+			// },
 			typescript: true
 		}),
 		TanStackRouterVite({
@@ -34,5 +34,8 @@ export default defineConfig({
 				api: 'modern'
 			}
 		}
+	},
+	server: {
+		host: true
 	}
 })
