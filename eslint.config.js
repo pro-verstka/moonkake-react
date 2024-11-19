@@ -46,6 +46,8 @@ export default [
 			],
 			'react-hooks/exhaustive-deps': 'error',
 			'perfectionist/sort-imports': 'error',
+			'perfectionist/sort-classes': "off",
+			'perfectionist/sort-modules': "off",
 			'no-mixed-spaces-and-tabs': 'off',
 			'react/react-in-jsx-scope': 'off',
 			'react/display-name': 'off',
