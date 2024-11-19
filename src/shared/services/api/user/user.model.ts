@@ -1,8 +1,8 @@
-export type User = {
+export type GetUserRequest = {
 	id: number
 }
 
-export type GetUserRequest = {
+export type User = {
 	id: number
 }
 

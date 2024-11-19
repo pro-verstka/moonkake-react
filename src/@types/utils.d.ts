@@ -1,3 +1,5 @@
+type GetObjectValues<Obj> = Obj extends Record<string, unknown> ? Obj[keyof Obj] : never
+
 type ApiError = {
 	detail: string
 	title: string
@@ -7,5 +9,3 @@ type ApiError = {
 type UnknownError = {
 	[key: string]: unknown
 }
-
-type GetObjectValues<Obj> = Obj extends Record<string, unknown> ? Obj[keyof Obj] : never

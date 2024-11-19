@@ -16,64 +16,6 @@ class HttpService {
 	}
 
 	/**
-	 * Handles the response from an API call.
-	 * @param response - The Axios response object.
-	 * @returns An object containing the success status, data, and error (if any).
-	 * @private
-	 */
-	private responseHandler<Response, Error>(response: AxiosResponse<Response>) {
-		if (this.isApiError(response.data)) {
-			return {
-				error: response.data as Error,
-				success: false as const,
-				data: null
-			}
-		}
-
-		return {
-			success: true as const,
-			data: response.data,
-			error: null
-		}
-	}
-
-	/**
-	 * Handles error messages and displays them using a toast notification.
-	 * @param error - The error object.
-	 * @private
-	 */
-	private errorMessageHandler(error: unknown) {
-		const err = error as UnknownError
-		const message = `${err?.message}` || 'Unknown error'
-
-		// if (this.isApiError(error?.response?.data)) {
-		// 	message = error?.response.data.detail
-		// }
-
-		toast.error(message)
-	}
-
-	/**
-	 * Handles errors from API calls.
-	 * @param error - The error object.
-	 * @returns An object containing the error details.
-	 * @private
-	 */
-	private errorHandler<Error>(error: unknown) {
-		const err = error as UnknownError
-
-		return {
-			error: {
-				description: err.message,
-				title: err.name,
-				type: 'error'
-			} as Error,
-			success: false as const,
-			data: null
-		}
-	}
-
-	/**
 	 * Performs a DELETE request.
 	 * @param url - The URL to send the request to.
 	 * @param params - Optional query parameters.
@@ -183,6 +125,64 @@ class HttpService {
 		const err = error as UnknownError
 
 		return !!err?.title && !!err?.detail && !!err?.type
+	}
+
+	/**
+	 * Handles the response from an API call.
+	 * @param response - The Axios response object.
+	 * @returns An object containing the success status, data, and error (if any).
+	 * @private
+	 */
+	private responseHandler<Response, Error>(response: AxiosResponse<Response>) {
+		if (this.isApiError(response.data)) {
+			return {
+				error: response.data as Error,
+				success: false as const,
+				data: null
+			}
+		}
+
+		return {
+			success: true as const,
+			data: response.data,
+			error: null
+		}
+	}
+
+	/**
+	 * Handles error messages and displays them using a toast notification.
+	 * @param error - The error object.
+	 * @private
+	 */
+	private errorMessageHandler(error: unknown) {
+		const err = error as UnknownError
+		const message = `${err?.message}` || 'Unknown error'
+
+		// if (this.isApiError(error?.response?.data)) {
+		// 	message = error?.response.data.detail
+		// }
+
+		toast.error(message)
+	}
+
+	/**
+	 * Handles errors from API calls.
+	 * @param error - The error object.
+	 * @returns An object containing the error details.
+	 * @private
+	 */
+	private errorHandler<Error>(error: unknown) {
+		const err = error as UnknownError
+
+		return {
+			error: {
+				description: err.message,
+				title: err.name,
+				type: 'error'
+			} as Error,
+			success: false as const,
+			data: null
+		}
 	}
 }
 

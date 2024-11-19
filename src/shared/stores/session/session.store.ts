@@ -1,8 +1,10 @@
 import { createJSONStorage, persist } from 'zustand/middleware'
 import { create } from 'zustand'
 
-type User = {
-	id: string
+type SessionActions = {
+	setToken: (token: SessionState['token']) => void
+	setUser: (user: SessionState['user']) => void
+	isAuthenticated: () => boolean
 }
 
 type SessionState = {
@@ -10,10 +12,8 @@ type SessionState = {
 	user: User | null
 }
 
-type SessionActions = {
-	setToken: (token: SessionState['token']) => void
-	setUser: (user: SessionState['user']) => void
-	isAuthenticated: () => boolean
+type User = {
+	id: string
 }
 
 export const sessionStore = create<SessionActions & SessionState>()(
