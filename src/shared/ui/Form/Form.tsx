@@ -47,6 +47,10 @@ export const Col = ({ children, ...props }: PropsWithChildren<ColProps>) => {
 export type LabelProps = ComponentProps<'label'>
 
 export const Label = ({ children, ...props }: PropsWithChildren<LabelProps>) => {
+	if (!children) {
+		return null
+	}
+
 	return (
 		<label {...props} className={cn(styles.form__label, props.className)}>
 			{children}
@@ -57,6 +61,10 @@ export const Label = ({ children, ...props }: PropsWithChildren<LabelProps>) => 
 export type DescriptionProps = ComponentProps<'div'>
 
 export const Description = ({ children, ...props }: PropsWithChildren<DescriptionProps>) => {
+	if (!children) {
+		return null
+	}
+
 	return (
 		<div {...props} className={cn(styles.form__description, props.className)}>
 			{children}
