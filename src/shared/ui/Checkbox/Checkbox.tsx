@@ -8,7 +8,7 @@ export type CheckboxProps = Omit<ComponentProps<'input'>, 'type'> & {
 }
 
 export const Checkbox = forwardRef<HTMLInputElement, PropsWithChildren<CheckboxProps>>(
-	({ children, isError, ...props }) => {
+	({ children, isError, ...props }, ref) => {
 		const classNames = {
 			[styles.checkbox_state_disabled]: props.disabled,
 			[styles.checkbox_state_error]: isError,
@@ -17,7 +17,7 @@ export const Checkbox = forwardRef<HTMLInputElement, PropsWithChildren<CheckboxP
 
 		return (
 			<label className={cn(classNames, props.className)}>
-				<input type="checkbox" {...props} />
+				<input type="checkbox" {...props} ref={ref} />
 
 				<span className={styles.checkbox__status} />
 

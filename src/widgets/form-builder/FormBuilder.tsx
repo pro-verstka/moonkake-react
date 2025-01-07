@@ -1,61 +1,10 @@
-import type { ReactElement } from 'react'
-
-import {
-	type SubmitErrorHandler,
-	type FieldPathValue,
-	type SubmitHandler,
-	type FieldPath,
-	Controller,
-	useForm
-} from 'react-hook-form'
 import { Checkbox, Button, Input, Radio, Form } from '@/shared/ui'
+import { type FieldPath, useForm } from 'react-hook-form'
 import { type infer as ZodInfer, ZodSchema } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { type ReactElement, useMemo } from 'react'
 
-type BaseFormField<FieldName = string> = {
-	fieldPlaceholder?: string
-	fieldName: FieldName
-	description?: string
-	fieldValue?: string
-	label?: string
-}
-
-type TextField = {
-	fieldType: 'text'
-}
-
-type EmailField = {
-	fieldType: 'email'
-}
-
-type TelField = {
-	fieldType: 'tel'
-}
-
-type DateField = {
-	fieldType: 'date'
-}
-
-type CheckboxField = {
-	fieldChecked?: boolean
-	fieldType: 'checkbox'
-}
-
-type RadioField = {
-	fieldChecked?: boolean
-	fieldType: 'radio'
-}
-
-type AllFields = CheckboxField | EmailField | RadioField | TextField | DateField | TelField
-
-export type FormBuilderFormSchema<FieldName> = (BaseFormField<FieldName> & AllFields)[][][]
-
-export type FormBuilderProps<ValidateSchema extends ZodSchema> = {
-	formSchema: FormBuilderFormSchema<keyof ZodInfer<ValidateSchema>>
-	onInvalidSubmit?: SubmitErrorHandler<ZodInfer<ValidateSchema>>
-	onValidSubmit: SubmitHandler<ZodInfer<ValidateSchema>>
-	validateSchema: ValidateSchema
-}
+import type { FormBuilderProps } from './model'
 
 export const FormBuilder = <FormFields extends ZodSchema>({
 	onInvalidSubmit,
@@ -63,8 +12,29 @@ export const FormBuilder = <FormFields extends ZodSchema>({
 	onValidSubmit,
 	formSchema
 }: FormBuilderProps<FormFields>) => {
+	const defaultValues = useMemo(() => {
+		const values: ZodInfer<FormFields> = {}
+
+		for (const fieldset of formSchema) {
+			for (const group of fieldset) {
+				for (const field of group) {
+					if (field.fieldValue) {
+						values[field.fieldName] = field.fieldValue
+					}
+
+					if (field.fieldType === 'checkbox' && field.fieldChecked) {
+						values[field.fieldName] = field.fieldChecked
+					}
+				}
+			}
+		}
+
+		return values
+	}, [formSchema])
+
 	const form = useForm<ZodInfer<FormFields>>({
-		resolver: zodResolver(validateSchema)
+		resolver: zodResolver(validateSchema),
+		defaultValues
 	})
 
 	return (
@@ -85,38 +55,39 @@ export const FormBuilder = <FormFields extends ZodSchema>({
 										switch (type) {
 											case 'checkbox':
 												component = (
-													<Controller
-														render={props => (
-															<Checkbox
-																{...props.field}
-																disabled={form.formState.isSubmitting}
-																defaultChecked={field.fieldChecked}
-																isError={Boolean(fieldError)}
-															/>
-														)}
-														defaultValue={field.fieldChecked as FieldPathValue<ZodInfer<FormFields>, typeof name>}
-														control={form.control}
-														name={name}
-													/>
+													<Checkbox
+														{...form.register(name)}
+														disabled={form.formState.isSubmitting}
+														isError={Boolean(fieldError)}
+													>
+														{field.label}
+													</Checkbox>
+												)
+
+												break
+
+											case 'select':
+												component = (
+													<select {...form.register(name)} disabled={form.formState.isSubmitting}>
+														{field.fieldOptions.map(option => (
+															<option value={option.value} key={option.value}>
+																{option.label}
+															</option>
+														))}
+													</select>
 												)
 
 												break
 
 											case 'radio':
 												component = (
-													<Controller
-														render={props => (
-															<Radio
-																{...props.field}
-																disabled={form.formState.isSubmitting}
-																defaultChecked={field.fieldChecked}
-																isError={Boolean(fieldError)}
-															/>
-														)}
-														defaultValue={field.fieldChecked as FieldPathValue<ZodInfer<FormFields>, typeof name>}
-														control={form.control}
-														name={name}
-													/>
+													<Radio
+														{...form.register(name)}
+														disabled={form.formState.isSubmitting}
+														isError={Boolean(fieldError)}
+													>
+														{field.label}
+													</Radio>
 												)
 
 												break
@@ -126,19 +97,12 @@ export const FormBuilder = <FormFields extends ZodSchema>({
 											case 'date':
 											case 'tel':
 												component = (
-													<Controller
-														render={props => (
-															<Input
-																{...props.field}
-																disabled={form.formState.isSubmitting}
-																placeholder={field.fieldPlaceholder}
-																isError={Boolean(fieldError)}
-																type={field.fieldType}
-															/>
-														)}
-														defaultValue={field.fieldValue as FieldPathValue<ZodInfer<FormFields>, typeof name>}
-														control={form.control}
-														name={name}
+													<Input
+														{...form.register(name)}
+														disabled={form.formState.isSubmitting}
+														placeholder={field.fieldPlaceholder}
+														isError={Boolean(fieldError)}
+														type={field.fieldType}
 													/>
 												)
 
@@ -150,7 +114,7 @@ export const FormBuilder = <FormFields extends ZodSchema>({
 
 										return (
 											<Form.Col key={name}>
-												<Form.Label>{field.label}</Form.Label>
+												{type !== 'checkbox' && type !== 'radio' ? <Form.Label>{field.label}</Form.Label> : null}
 
 												{component}
 

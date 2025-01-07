@@ -1,1 +1,2 @@
-export { type FormBuilderFormSchema, type FormBuilderProps, FormBuilder } from './FormBuilder'
+export { type FormBuilderFormSchema, type FormBuilderProps } from './model'
+export { FormBuilder } from './FormBuilder'
