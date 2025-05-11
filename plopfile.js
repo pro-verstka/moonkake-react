@@ -6,6 +6,10 @@ const PATH = {
 	PAGE: 'src/pages'
 }
 
+/**
+ * Plop generator function
+ * @param {import('plop').NodePlopAPI} plop - Plop API instance
+ */
 export default function (plop) {
 	plop.setGenerator('Page', {
 		actions: [

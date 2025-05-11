@@ -114,7 +114,7 @@ export const FormBuilder = <FormFields extends ZodSchema>({
 
 										return (
 											<Form.Col key={name}>
-												{type !== 'checkbox' && type !== 'radio' ? <Form.Label>{field.label}</Form.Label> : null}
+												<Form.Label>{field.label}</Form.Label>
 
 												{component}
 
