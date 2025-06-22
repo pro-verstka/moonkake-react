@@ -21,72 +21,70 @@ const IndexLazyImport = createFileRoute('/')()
 // Create/Update Routes
 
 const IndexLazyRoute = IndexLazyImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./pages/index.lazy').then((d) => d.Route))
+	id: '/',
+	path: '/',
+	getParentRoute: () => rootRoute
+} as any).lazy(() => import('./pages/index.lazy').then(d => d.Route))
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexLazyImport
-      parentRoute: typeof rootRoute
-    }
-  }
+	interface FileRoutesByPath {
+		'/': {
+			id: '/'
+			path: '/'
+			fullPath: '/'
+			preLoaderRoute: typeof IndexLazyImport
+			parentRoute: typeof rootRoute
+		}
+	}
 }
 
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexLazyRoute
+	'/': typeof IndexLazyRoute
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexLazyRoute
+	'/': typeof IndexLazyRoute
 }
 
 export interface FileRoutesById {
-  __root__: typeof rootRoute
-  '/': typeof IndexLazyRoute
+	__root__: typeof rootRoute
+	'/': typeof IndexLazyRoute
 }
 
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
-  fileRoutesById: FileRoutesById
+	fileRoutesByFullPath: FileRoutesByFullPath
+	fullPaths: '/'
+	fileRoutesByTo: FileRoutesByTo
+	to: '/'
+	id: '__root__' | '/'
+	fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  IndexLazyRoute: typeof IndexLazyRoute
+	IndexLazyRoute: typeof IndexLazyRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexLazyRoute: IndexLazyRoute,
+	IndexLazyRoute: IndexLazyRoute
 }
 
-export const routeTree = rootRoute
-  ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+export const routeTree = rootRoute._addFileChildren(rootRouteChildren)._addFileTypes<FileRouteTypes>()
 
 /* ROUTE_MANIFEST_START
 {
   "routes": {
     "__root__": {
-      "filePath": "__root.tsx",
+      "filePath": "__root.js",
       "children": [
         "/"
       ]
     },
     "/": {
-      "filePath": "index.lazy.tsx"
+      "filePath": "index.lazy.js"
     }
   }
 }

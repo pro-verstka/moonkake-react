@@ -1,5 +1,5 @@
 import { type AxiosRequestConfig, type AxiosInstance, type AxiosResponse } from 'axios'
-import { httpClient } from '@/shared/clients'
+import { httpClient } from '$shared/clients'
 import { toast } from 'sonner'
 
 /**

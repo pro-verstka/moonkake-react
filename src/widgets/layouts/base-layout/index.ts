@@ -1,1 +1,1 @@
-export { BaseLayout } from './BaseLayout.tsx'
+export { BaseLayout } from './BaseLayout'

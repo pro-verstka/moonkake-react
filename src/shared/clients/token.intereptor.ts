@@ -1,4 +1,5 @@
-import { sessionStore } from '../stores/session'
+import { sessionStore } from '$stores/session'
+
 import { httpClient } from './http.client'
 
 httpClient.interceptors.request.use(config => {

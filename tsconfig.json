@@ -23,7 +23,18 @@
 		"forceConsistentCasingInFileNames": false,
 
 		"paths": {
-			"@/*": ["./src/*"]
+			"_mixins": ["./src/app/styles/_mixins.scss"],
+			"$services": ["./src/shared/services"],
+			"$libs": ["./src/shared/libs"],
+			"$entities/*": ["./src/entities/*"],
+			"$features/*": ["./src/features/*"],
+			"$stores/*": ["./src/shared/stores/*"],
+			"$widgets/*": ["./src/widgets/*"],
+			"$hooks": ["./src/shared/hooks"],
+			"$shared/*": ["./src/shared/*"],
+			"$pages/*": ["./src/pages/*"],
+			"$ui/*": ["./src/shared/ui/*"],
+			"$app/*": ["./src/app/*"]
 		}
   },
   "include": [

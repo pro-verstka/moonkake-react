@@ -6,7 +6,7 @@ export const LoginForm = () => {
 	const { actions, form } = useLoginForm()
 
 	return (
-		<Form.Root onSubmit={form.handleSubmit(actions.onValidSubmitHandler, actions.onInvalidSubmitHandler)}>
+		<Form.Root onSubmit={actions.onSubmit}>
 			<Form.FieldSet>
 				<Form.Row>
 					<Form.Col>

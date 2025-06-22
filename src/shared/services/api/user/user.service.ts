@@ -1,4 +1,4 @@
-import type { GetUserResponse } from './user.model.ts'
+import type { GetUserResponse } from './user.model'
 
 import { httpService } from '../../utils'
 

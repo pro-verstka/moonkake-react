@@ -1,19 +1,23 @@
-import { Checkbox, Button, Input, Radio, Form } from '@/shared/ui'
 import { type FieldPath, useForm } from 'react-hook-form'
-import { type infer as ZodInfer, ZodSchema } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { type ReactElement, useMemo } from 'react'
+import { Checkbox } from '$ui/checkbox'
+import { Button } from '$ui/button'
+import { Input } from '$ui/field'
+import { Radio } from '$ui/radio'
+import { Form } from '$ui/form'
+import { z } from 'zod'
 
 import type { FormBuilderProps } from './model'
 
-export const FormBuilder = <FormFields extends ZodSchema>({
+export const FormBuilder = <FormFields extends z.ZodSchema>({
 	onInvalidSubmit,
 	validateSchema,
 	onValidSubmit,
 	formSchema
 }: FormBuilderProps<FormFields>) => {
 	const defaultValues = useMemo(() => {
-		const values: ZodInfer<FormFields> = {}
+		const values: z.infer<FormFields> = {}
 
 		for (const fieldset of formSchema) {
 			for (const group of fieldset) {
@@ -32,7 +36,10 @@ export const FormBuilder = <FormFields extends ZodSchema>({
 		return values
 	}, [formSchema])
 
-	const form = useForm<ZodInfer<FormFields>>({
+	const form = useForm({
+		// FIXME
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		// @ts-expect-error
 		resolver: zodResolver(validateSchema),
 		defaultValues
 	})
@@ -49,7 +56,7 @@ export const FormBuilder = <FormFields extends ZodSchema>({
 										let component: ReactElement
 
 										const type = field.fieldType
-										const name = field.fieldName as FieldPath<ZodInfer<FormFields>>
+										const name = field.fieldName as FieldPath<z.infer<FormFields>>
 										const fieldError = form.formState.errors[name]?.message as undefined | string
 
 										switch (type) {
@@ -109,7 +116,7 @@ export const FormBuilder = <FormFields extends ZodSchema>({
 												break
 
 											default:
-												throw new Error(`Unsupported fieldType: ${type}`)
+												throw new Error(`Unsupported fieldType: ${type satisfies never}`)
 										}
 
 										return (

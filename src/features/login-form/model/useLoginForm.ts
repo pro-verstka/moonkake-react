@@ -1,7 +1,7 @@
 import { type SubmitErrorHandler, type SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { toast } from 'sonner'
-import { z } from 'zod'
+import { z } from 'zod/v4'
 
 const schema = z.object({
 	password: z
@@ -11,19 +11,19 @@ const schema = z.object({
 		.min(8, {
 			message: 'Password must be at least 8 characters'
 		}),
-	email: z
-		.string({
-			message: 'Email is required'
-		})
-		.email({
-			message: 'Email is invalid'
-		})
+	email: z.email({
+		message: 'Email is required'
+	})
 })
 
 type FormData = z.infer<typeof schema>
 
 export const useLoginForm = () => {
 	const form = useForm<FormData>({
+		defaultValues: {
+			password: '',
+			email: ''
+		},
 		resolver: zodResolver(schema)
 	})
 
@@ -39,8 +39,7 @@ export const useLoginForm = () => {
 
 	return {
 		actions: {
-			onInvalidSubmitHandler,
-			onValidSubmitHandler
+			onSubmit: form.handleSubmit(onValidSubmitHandler, onInvalidSubmitHandler)
 		},
 		form
 	}

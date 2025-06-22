@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
+
 import { apiService } from '@/shared/services'
 
 export const QUERY_USER_KEY = 'user'

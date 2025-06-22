@@ -1,1 +1,1 @@
-export { httpClient } from './http.client.ts'
+export { httpClient } from './http.client'

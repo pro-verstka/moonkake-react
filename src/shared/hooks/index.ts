@@ -1,1 +1,1 @@
-export * from './useApiService.ts'
+export * from './useApiService'

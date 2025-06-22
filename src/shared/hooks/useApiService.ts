@@ -1,3 +1,3 @@
-import { apiService } from '@/shared/services'
+import { apiService } from '$services'
 
 export const useApiService = () => apiService

@@ -1,7 +1,6 @@
 import type { SubmitErrorHandler, SubmitHandler } from 'react-hook-form'
-import type { infer as ZodInfer } from 'zod'
 
-import { ZodSchema } from 'zod'
+import { z } from 'zod'
 
 type BaseFormField<FieldName = string> = {
 	fieldPlaceholder?: string
@@ -54,9 +53,9 @@ type AllFields = CheckboxField | SelectField | EmailField | RadioField | TextFie
 
 export type FormBuilderFormSchema<FieldName> = (BaseFormField<FieldName> & AllFields)[][][]
 
-export type FormBuilderProps<ValidateSchema extends ZodSchema> = {
-	formSchema: FormBuilderFormSchema<keyof ZodInfer<ValidateSchema>>
-	onInvalidSubmit?: SubmitErrorHandler<ZodInfer<ValidateSchema>>
-	onValidSubmit: SubmitHandler<ZodInfer<ValidateSchema>>
+export type FormBuilderProps<ValidateSchema extends z.ZodSchema> = {
+	formSchema: FormBuilderFormSchema<keyof z.infer<ValidateSchema>>
+	onInvalidSubmit?: SubmitErrorHandler<z.infer<ValidateSchema>>
+	onValidSubmit: SubmitHandler<z.infer<ValidateSchema>>
 	validateSchema: ValidateSchema
 }
